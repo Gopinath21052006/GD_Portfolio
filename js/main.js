@@ -176,7 +176,12 @@
   /* ---------- static content from data ---------- */
   function applySite() {
     $$(".js-resume").forEach(a => {
-      if (SITE.resume) a.href = SITE.resume; else a.hidden = true;
+      if (SITE.resume) {
+        a.href = SITE.resume;
+        a.hidden = false;
+      } else {
+        a.hidden = true;
+      }
     });
     const img = $("#profileImg");
     if (SITE.profileImage) {
@@ -189,7 +194,7 @@
     if (SITE.email) links.push(`<a class="btn btn--primary" href="mailto:${esc(SITE.email)}">Email me</a>`);
     links.push(`<a class="btn ${SITE.email ? "btn--ghost" : "btn--primary"}" href="${esc(SITE.linkedin)}" ${extAttrs}>LinkedIn</a>`);
     links.push(`<a class="btn btn--ghost" href="${esc(SITE.github)}" ${extAttrs}>GitHub</a>`);
-    if (SITE.resume) links.push(`<a class="btn btn--ghost" href="${esc(SITE.resume)}" ${extAttrs}>Resume</a>`);
+    if (SITE.resume) links.push(`<a class="btn btn--ghost js-resume" href="${esc(SITE.resume)}" ${extAttrs} download="GOPINATH_R_Game_developer.pdf">Resume (PDF) ↗</a>`);
     $("#contactLinks").innerHTML = links.join("");
   }
 

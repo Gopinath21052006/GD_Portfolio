@@ -6,13 +6,11 @@
 
 window.SITE = {
   name: "Gopinath R",
-  // Add your email to show an Email button in the Contact section.
-  email: "",
-  github: "https://github.com/gopinath21052006",
+  title: "Junior Gameplay Programmer | Software Developer",
+  email: "gopinath02105@gmail.com",
+  github: "https://github.com/Gopinath21052006",
   linkedin: "https://www.linkedin.com/in/gopinath21052006/",
-  // Currently points to the CV on your existing portfolio.
-  // Replace with "assets/Gopinath_R_GameDev_Resume.pdf" once you add a game-dev resume.
-  resume: "https://gopinath21052006.github.io/Portfolio/scr/GOPINATH_R.pdf",
+  resume: "assets/GOPINATH_R_Game_developer.pdf",
   profileImage: "https://gopinath21052006.github.io/Portfolio/scr/WhatsApp%20Image%202025-09-28%20at%209.08.48%20PM.jpeg"
 };
 
@@ -81,17 +79,23 @@ window.PROJECTS = [
     title: "ANTI-GRAVITY",
     category: "3D Physics Prototype",
     filters: ["Unreal Engine 5", "3D", "Prototype"],
-    engine: "Unreal Engine 5",
+    engine: "Unreal Engine 5.8",
     platform: "Windows PC",
     languages: "Blueprint Visual Scripting",
     status: "Build Ongoing // Prototype",
-    summary: "A first-person physics prototype built to explore gravity manipulation, physics handles, and multi-level progression in Unreal Engine 5.",
-    details: "A first-person 3D gameplay prototype created in Unreal Engine 5 to explore physics-driven mechanics. Players use an anti-gravity tool to grab, hold, and launch physics objects, solve spatial puzzles, and test level progression across three prototype environments.",
-    features: ["Anti-gravity manipulation", "Real-time physics handles", "Object launching & impulse", "Coin collection", "Three-level progression"],
-    tags: ["Unreal Engine 5", "Blueprints", "Physics", "Prototype", "First-Person"],
+    summary: "A first-person 3D physics puzzle prototype built around an Anti-Gravity Gun that grabs, holds, repositions, and launches objects using Physics Handle, line traces, and impulses.",
+    details: "A first-person 3D physics puzzle adventure created in Unreal Engine 5.8 using Blueprints. Features a gravity manipulation gun utilizing Physics Handle, line traces, and impulses to interact with movable crates, heavy reactor objects, pressure plates, and animated security doors. Includes collectible coins with persistent tracking and level progression through a Game Instance.",
+    features: [
+      "Anti-Gravity Gun with Physics Handle & impulses",
+      "Puzzles with movable crates, reactor objects & pressure plates",
+      "Animated security doors across 3 levels",
+      "Persistent coin tracking via Game Instance",
+      "Modular Blueprint architecture (player, grabbables, pressure plates, doors)"
+    ],
+    tags: ["Unreal Engine 5.8", "Blueprints", "Physics Handle", "Puzzle", "First-Person"],
     image: "assets/images/antigravity-screenshot.jpg",
     video: null,
-    telemetry: "UE5.4 // 60 FPS // CHAOS PHYSICS",
+    telemetry: "UE 5.8 // 60 FPS // CHAOS PHYSICS",
     art: "art--gravity",
     links: []
   }
@@ -116,8 +120,8 @@ window.SKILLS = [
 
 /* Factual milestones styled as an RPG progression tree */
 window.TIMELINE = [
-  { when: "2023", quest: "// PHASE 01: FOUNDATION", title: "CS Foundation", text: "Started B.Sc. Computer Science at SSM College, Dindigul, building strong algorithmic and programming fundamentals." },
-  { when: "2024", quest: "// PHASE 02: GAME DEVELOPMENT", title: "Game Prototyping & Mobile", text: "Built a complete 2D Android game in Kotlin/Java with offline level progression and started exploring physics-driven UE5 prototypes with Blueprints." },
-  { when: "2025", quest: "// PHASE 03: INDUSTRY INTERNSHIP", title: "Web Dev Intern", text: "Internship at AIS Education, Madurai, strengthening software engineering practices and production delivery." },
-  { when: "2026", quest: "// PHASE 04: GRADUATE & READY", title: "Computer Science Graduate", text: "Graduating (batch 2023–2026), dedicated to continuous learning and pursuing a junior gameplay programmer role." }
+  { when: "2023", quest: "// PHASE 01: FOUNDATION", title: "CS Foundation", text: "Started B.Sc. Computer Science at SSM College of Arts and Science, Dindigul (CGPA: 7.3 / 10), building strong algorithmic and programming fundamentals." },
+  { when: "2024", quest: "// PHASE 02: GAME DEVELOPMENT", title: "Game Prototyping & Mobile", text: "Built Apple Adventure, an offline 2D Android platformer in Kotlin/Java with custom Canvas rendering. Started exploring physics-driven UE5 prototypes with Blueprints." },
+  { when: "2025", quest: "// PHASE 03: INDUSTRY INTERNSHIP", title: "Web Dev Intern • AIS Education", text: "Internship at AIS Education, Madurai. Built a Library Management System using Django with full CRUD operations and responsive UI." },
+  { when: "2026", quest: "// PHASE 04: GAMEPLAY PROGRAMMER", title: "Unreal Engine 5 Gameplay", text: "Graduating B.Sc. Computer Science (batch 2023–2026). Developed ANTI-GRAVITY and Retro Ping Pong Arcade in UE 5.8. Pursuing Junior Gameplay Programmer roles." }
 ];
