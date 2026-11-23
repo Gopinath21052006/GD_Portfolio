@@ -1007,10 +1007,18 @@ p.hero__in,
 
 /* Structured technical capability tags */
 .tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
   margin-top: 1.8rem;
+  list-style: none;
+  padding: 0;
+}
+
+@media (max-width: 640px) {
+  .tech-tags {
+    grid-template-columns: 1fr;
+  }
 }
 
 .tech-tags li {
@@ -1024,6 +1032,7 @@ p.hero__in,
   color: #e2e8f0;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(6px);
+  white-space: nowrap;
 }
 
 .tech-tags li span {
@@ -1050,6 +1059,31 @@ p.hero__in,
   overflow: hidden;
   box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.6);
   transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.hud-card--full {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 1.8rem;
+  padding: 1.5rem 2rem;
+}
+
+.hud-card--full .hud-card__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 960px) {
+  .hud-card--full .hud-card__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .hud-card--full .hud-card__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .hud-card:hover {
@@ -1528,10 +1562,6 @@ p.hero__in,
   border-radius: 50%;
   background: var(--accent-cyan);
   box-shadow: 0 0 8px var(--accent-cyan);
-}
-  color: var(--accent-cyan);
-  font-weight: 600;
-  margin: 0;
 }
 
 .proj__title {
