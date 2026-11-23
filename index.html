@@ -1,743 +1,275 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gopinath — Full-Stack Developer</title>
-  <link rel="icon" type="image/png" href="scr/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600;1,700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gopinath R — Gameplay Developer | Unreal Engine 5</title>
+  <meta name="description" content="Portfolio of Gopinath R, Computer Science graduate and aspiring gameplay programmer learning Unreal Engine 5, Blueprints, physics interactions, and Android game development.">
+  <meta name="theme-color" content="#0b0c10">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gopinath R — Gameplay Developer">
+  <meta property="og:description" content="Unreal Engine 5 gameplay prototypes, physics mechanics, and Android development.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0c10'/%3E%3Ctext x='50' y='66' font-size='56' text-anchor='middle' fill='%23a78bfa' font-family='sans-serif' font-weight='700'%3EG%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<!-- ══ HEADER ═════════════════════════════════════════ -->
-<header id="hdr">
-  <div class="container">
-    <nav>
-      <a href="#home" class="logo">Gopi<em>nath</em></a>
-      <ul class="nav-links">
-        <li><a href="#home"     class="nl">Home</a></li>
-        <li><a href="#about"    class="nl">About</a></li>
-        <li><a href="#skills"   class="nl">Skills</a></li>
-        <li><a href="#projects" class="nl">Projects</a></li>
-        <li><a href="#contact"  class="nl">Contact</a></li>
-      </ul>
-      <div class="nav-right">
-        <button class="theme-btn" id="themeBtn" title="Toggle theme">
-          <i class="fas fa-sun" id="themeIco"></i>
-        </button>
-        <button class="hamburger" id="hamburger" aria-label="Open menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<!-- Mobile drawer -->
-<div class="drawer-overlay" id="dOverlay"></div>
-<div class="drawer" id="drawer">
-  <button class="drawer-close" id="dClose"><i class="fas fa-times"></i></button>
-  <a href="#home"     class="dl">Home</a>
-  <a href="#about"    class="dl">About</a>
-  <a href="#skills"   class="dl">Skills</a>
-  <a href="#projects" class="dl">Projects</a>
-  <a href="#contact"  class="dl">Contact</a>
-  <div class="drawer-theme">
-    <button class="theme-btn" id="themeBtnM"><i class="fas fa-sun" id="themeIcoM"></i></button>
-    <span>Toggle theme</span>
-  </div>
-</div>
-
-<!-- ══ HERO ═══════════════════════════════════════════ -->
-<section class="hero" id="home">
-  <div class="container">
-    <div class="hero-badge">Open to opportunities &amp; collaboration</div>
-    <h1 class="hero-title">
-      Full-<em class="it">Stack</em><br>
-      Devel<span class="pk">oper</span>
-    </h1>
-    <p class="hero-role">// Gopinath &nbsp;·&nbsp; AI &amp; UI/UX Focused &nbsp;·&nbsp; dindigul , india </p>
-    <p class="hero-type"><span id="typed"></span></p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-gold"><i class="fas fa-layer-group"></i> View Projects</a>
-      <a href="https://github.com/gopinath21052006" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
-      <a href="#contact" class="btn btn-pink"><i class="fas fa-paper-plane"></i> Let's Talk</a>
+  <!-- INTRO TYPING PRELOADER -->
+  <div class="intro-loader" id="introLoader" role="dialog" aria-modal="true" aria-label="Loading Gopinath R portfolio">
+    <div class="intro-loader__bg" aria-hidden="true">
+      <div class="intro-loader__glow"></div>
+      <div class="intro-loader__grid"></div>
     </div>
-  </div>
-  <div class="scroll-hint"><span>Scroll</span><i class="fas fa-chevron-down"></i></div>
-</section>
-
-<!-- ══ TECH STRIP ══════════════════════════════════════ -->
-<div class="tech-strip">
-  <div class="container">
-    <p class="strip-label">Tech Stack</p>
-    <div class="tech-icons">
-      <div class="ti"><i class="fab fa-react"></i><span>React</span></div>
-      <div class="ti"><i class="fab fa-js"></i><span>TypeScript</span></div>
-      <div class="ti"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-      <div class="ti"><i class="fas fa-server"></i><span>Express.js</span></div>
-      <div class="ti"><i class="fab fa-python"></i><span>Python</span></div>
-      <div class="ti"><i class="fas fa-server"></i><span>FastAPI</span></div>
-      <div class="ti"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-      <div class="ti"><i class="fas fa-fire"></i><span>Firebase</span></div>
-      <div class="ti"><i class="fas fa-cloud"></i><span>Cloudinary</span></div>
-      <div class="ti"><i class="fab fa-html5"></i><span>HTML5</span></div>
-      <div class="ti"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-      <div class="ti"><i class="fas fa-wind"></i><span>Tailwind</span></div>
-      <div class="ti"><i class="fas fa-bolt"></i><span>Vite</span></div>
-      <div class="ti"><i class="fas fa-desktop"></i><span>Electron</span></div>
-      <div class="ti"><i class="fab fa-git-alt"></i><span>Git</span></div>
-      <div class="ti"><i class="fab fa-github"></i><span>GitHub</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ ABOUT ═══════════════════════════════════════════ -->
-<section id="about">
-  <div class="container">
-    <p class="lbl rv">About</p>
-    <h2 class="st rv d1">The mind <em>behind</em> the <span class="g">code</span></h2>
-    <div class="about-grid">
-      <div class="atext rv d2">
-        <p>Hey — I'm <strong>Gopinath</strong>, a <span class="gw">full-stack developer</span> based in Dindigul. I build applications that are technically solid, scalable, and genuinely useful — not just visually polished.</p>
-        <p>My stack spans <strong>React, TypeScript, Node.js, Python, and Firebase</strong>. I've shipped everything from <span class="pw">AI-powered desktop tools</span> to civic-tech platforms to real-time event systems. Architecture and performance are things I think about deeply.</p>
-        <div class="quote-block">
-          "I don't stop until I understand the problem properly or find a better solution. Complexity just means there's more to learn."
-        </div>
-        <p>Beyond code, I'm drawn to <strong>storytelling</strong>. It sharpens how I think about user experience — because the best products, like great stories, are built around the people who use them.</p>
-        <div class="pills">
-          <div class="pill"><span class="g">10+</span> Projects</div>
-          <div class="pill"><span class="g">●</span> Full-Stack</div>
-          <div class="pill"><span class="g">●</span> AI Integration</div>
-          <div class="pill"><span class="g">●</span> Open Source</div>
-        </div>
-        <br>
-        <a href="scr/GOPINATH_R.pdf" class="btn btn-outline" style="width:fit-content;margin-top:8px;">
-          <i class="fas fa-download"></i> Download CV
-        </a>
+    <div class="intro-loader__card">
+      <div class="intro-loader__meta">
+        <span class="intro-loader__dot"></span>
+        <span class="intro-loader__tag" id="introTag">// INITIALIZING</span>
+        <span class="intro-loader__percent" id="introPercent">0%</span>
       </div>
-      <div class="aimg rv d3">
-        <div class="profile-card">
-          <img src="scr/WhatsApp Image 2025-09-28 at 9.08.48 PM.jpeg" alt="Gopinath" onerror="this.style.display='none'" />
-          <div class="ptag">Full-Stack Developer · 2025</div>
-        </div>
-        <div class="pdeco"></div>
+      <div class="intro-loader__heading">
+        <span class="intro-loader__typed" id="introTyped"></span><span class="intro-loader__cursor" id="introCursor" aria-hidden="true"></span>
+      </div>
+      <div class="intro-loader__track" aria-hidden="true">
+        <div class="intro-loader__bar" id="introBar"></div>
+      </div>
+      <div class="intro-loader__sub" id="introSub">
+        <span>GAMEPLAY DEVELOPER</span>
+        <span class="intro-loader__sep">•</span>
+        <span>UNREAL ENGINE 5</span>
       </div>
     </div>
+    <button class="intro-loader__skip" id="introSkip" aria-label="Skip intro">SKIP <span>[ESC]</span></button>
   </div>
-</section>
 
-<!-- ══ SKILLS ══════════════════════════════════════════ -->
-<section class="skills-bg" id="skills">
-  <div class="container">
-    <p class="lbl rv">Skills</p>
-    <h2 class="st rv d1">What I <span class="g">build</span> <em>with</em></h2>
-    <div class="sgroups">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-      <div class="sg rv d1">
-        <div class="sg-head"><div class="sg-ico"><i class="fas fa-palette"></i></div><div class="sg-title">Frontend</div></div>
-        <div class="slist">
-          <div class="si"><div class="si-row"><span class="si-name">HTML5 &amp; CSS3</span><span class="si-pct">95%</span></div><div class="bar"><div class="bar-fill" data-w="95"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">JavaScript</span><span class="si-pct">92%</span></div><div class="bar"><div class="bar-fill" data-w="92"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">React.js</span><span class="si-pct">90%</span></div><div class="bar"><div class="bar-fill" data-w="90"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">TypeScript</span><span class="si-pct">85%</span></div><div class="bar"><div class="bar-fill" data-w="85"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">Tailwind CSS</span><span class="si-pct">88%</span></div><div class="bar"><div class="bar-fill" data-w="88"></div></div></div>
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#home" class="nav__logo" aria-label="Gopinath — home">GOPINATH<span>.</span></a>
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <ul class="nav__list" id="navList">
+          <li><a href="#home" class="nav__link">Overview</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#projects" class="nav__link">Projects</a></li>
+          <li><a href="#skills" class="nav__link">Skills</a></li>
+          <li><a href="#journey" class="nav__link">Milestones</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+          <span class="nav__indicator" id="navIndicator" aria-hidden="true"></span>
+        </ul>
+        <div class="nav__actions">
+          <button class="sfx-toggle" id="sfxToggle" aria-label="Toggle sound effects" title="Toggle sound effects">
+            <span class="sfx-icon">🔈</span>
+            <span class="sfx-label">SFX: OFF</span>
+          </button>
+          <a href="#" class="btn btn--sm btn--resume js-resume nav__resume" target="_blank" rel="noopener">Resume</a>
         </div>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__image-bg" data-speed="0.18"></div>
+        <div class="hero__sky"></div>
+        <div class="hero__glow" data-speed="0.1"></div>
+        <canvas id="stars" class="hero__stars"></canvas>
+        <div class="hero__fog hero__fog--1"></div>
+        <div class="hero__fog hero__fog--2"></div>
+        <div class="hero__vignette"></div>
       </div>
 
-      <div class="sg rv d2">
-        <div class="sg-head"><div class="sg-ico"><i class="fas fa-server"></i></div><div class="sg-title">Backend</div></div>
-        <div class="slist">
-          <div class="si"><div class="si-row"><span class="si-name">Node.js &amp; Express</span><span class="si-pct">88%</span></div><div class="bar"><div class="bar-fill" data-w="88"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">Python</span><span class="si-pct">85%</span></div><div class="bar"><div class="bar-fill" data-w="85"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">REST APIs</span><span class="si-pct">88%</span></div><div class="bar"><div class="bar-fill" data-w="88"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">PostgreSQL &amp; Prisma</span><span class="si-pct">82%</span></div><div class="bar"><div class="bar-fill" data-w="82"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">FastAPI &amp; Flask</span><span class="si-pct">80%</span></div><div class="bar"><div class="bar-fill" data-w="80"></div></div></div>
+      <div class="container hero__content">
+        <div class="hero__kicker-badge hero__in">
+          <span class="hero__kicker-dot"></span>
+          <span class="hero__kicker-text" data-phrases='["// LEARNING UNREAL ENGINE 5", "// BUILDING GAMEPLAY PROTOTYPES", "// BLUEPRINTS &amp; MECHANICS", "// CS GRADUATE"]'>// ASPIRING GAMEPLAY DEVELOPER &bull; LEARNING UE5</span>
         </div>
-      </div>
-
-      <div class="sg rv d3">
-        <div class="sg-head"><div class="sg-ico"><i class="fas fa-wrench"></i></div><div class="sg-title">Tools &amp; Platforms</div></div>
-        <div class="slist">
-          <div class="si"><div class="si-row"><span class="si-name">Firebase</span><span class="si-pct">85%</span></div><div class="bar"><div class="bar-fill" data-w="85"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">Git &amp; GitHub</span><span class="si-pct">92%</span></div><div class="bar"><div class="bar-fill" data-w="92"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">Cloudinary</span><span class="si-pct">80%</span></div><div class="bar"><div class="bar-fill" data-w="80"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">UI/UX Design</span><span class="si-pct">85%</span></div><div class="bar"><div class="bar-fill" data-w="85"></div></div></div>
-          <div class="si"><div class="si-row"><span class="si-name">AI Integration</span><span class="si-pct">80%</span></div><div class="bar"><div class="bar-fill" data-w="80"></div></div></div>
+        <h1 class="hero__title hero__in">
+          <span class="hero__title-line">CRAFTING WORLDS.</span>
+          <span class="hero__title-line">MAKING THEM <span class="hero__accent">REAL.</span></span>
+        </h1>
+        <p class="hero__desc hero__in">Computer Science graduate actively learning Unreal Engine 5 gameplay development. Building hands-on playable prototypes to understand physics mechanics, player controls, and game loops from the ground up.</p>
+        <div class="hero__actions hero__in" style="--d:.75s">
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">Explore Projects <span aria-hidden="true">→</span></a>
+            <a href="#about" class="btn btn--ghost">About Me</a>
+          </div>
+          <div class="hero__divider" aria-hidden="true"></div>
+          <div class="hero__social">
+            <a href="https://github.com/gopinath21052006" target="_blank" rel="noopener" class="hero__pill" aria-label="GitHub profile">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/gopinath21052006/" target="_blank" rel="noopener" class="hero__pill" aria-label="LinkedIn profile">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+          </div>
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ══ PROJECTS ════════════════════════════════════════ -->
-<section id="projects">
-  <div class="container">
-    <p class="lbl rv">Projects</p>
-    <h2 class="st rv d1">Things I've <span class="p">built</span></h2>
-
-    <div class="featured rv">
-      <div class="feat-media">
-        <div class="feat-badge">⭐ Featured</div>
-        <img src="scr/project_image/detrothon.png" alt="DETROTHON" onerror="this.style.display='none'" />
-      </div>
-      <div class="feat-body">
-        <h3>DETROTHON 2026 — Official Hackathon Platform</h3>
-        <p>Real-world event platform for a student-led innovation hackathon with Smartiva Technologies LLP. Handles registrations, submissions, and live announcements — built to scale under real event traffic.</p>
-        <div class="tags">
-          <span class="tag">React</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Firebase</span>
-          <span class="tag p">Tailwind CSS</span>
-          <span class="tag p">Real-World</span>
-        </div>
-        <div class="feat-links">
-          <a href="https://detrothon.web.app/" target="_blank" class="btn btn-gold"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          <a href="https://github.com/Gopinath21052006/Detrothon.git" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <div class="featured rv">
-  <div class="feat-media">
-    <div class="feat-badge">⭐ Featured</div>
-    <img src="scr/project_image/ai-reel-agent.png"
-         alt="Autonomous AI Reel Agent"
-         onerror="this.style.display='none'" />
-  </div>
-
-  <div class="feat-body">
-    <h3>Autonomous AI Reel Agent — Intelligent Reel Recommendation System</h3>
-
-    <p>
-      AI-powered agent that continuously watches Reels, analyzes visual content
-      using local Vision AI, compares each Reel against a personalized target
-      profile, generates match scores, makes decisions, and continues processing
-      the next Reel — built with a privacy-first local AI architecture.
-    </p>
-
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">Ollama</span>
-      <span class="tag">LLaVA-Phi3</span>
-      <span class="tag p">Playwright</span>
-      <span class="tag p">SQLite</span>
-      <span class="tag p">Streamlit</span>
-      <span class="tag p">AI Agent</span>
-    </div>
-
-    <div class="feat-links">
-      <a href="https://github.com/Gopinath21052006/Autonomous-AI-Reel-Agent.git"
-         target="_blank"
-         class="btn btn-outline">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-       <a href="https://drive.google.com/file/d/1TjNTSB_w57WsHy75rtdt7mA4DOA09QSb/view?usp=drive_link"
-         target="_blank"
-         class="btn btn-outline">
-        <i class="fas fa-video"></i> Demo
-      </a>
-    </div>
-  </div>
-</div>
-
-    <div class="pgrid">
-      <div class="pc rv d3">
-  <div class="pc-img">
-    <img src="scr/project_image/MotoRevive.png" alt="MotoRevive" onerror="this.style.display='none'" />
-  </div>
-
-  <div class="pc-body">
-
-
-    <h3>MotoRevive</h3>
-
-    <p>
-      A full-stack used motorcycle dealership management platform with seller
-      management, inspections, inventory tracking, customer bookings, sales,
-      analytics, and secure role-based dashboards. Built using React, Node.js,
-      Express, PostgreSQL, and Prisma ORM.
-    </p>
-
-    <div class="pc-links">
-      <a href="https://www.linkedin.com/posts/gopinath21052006_fullstackdevelopment-reactjs-nodejs-ugcPost-7472329796572831744-5mjT/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEaBIsYBj3Wn1ILxYYOssPDts9HnLkkRrQ4" target="_blank" class="demo">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-
-      <a href="https://github.com/Gopinath21052006/MotoRevive.git" target="_blank" class="code">
-        <i class="fab fa-github"></i> Source Code
-      </a>
-    </div>
-  </div>
-</div>
-
-
-
-
-<div class="pc rv d4">
-  <div class="pc-img">
-    <img src="scr/project_image/temptalk_g2.png" alt="TempTalk G2" onerror="this.style.display='none'" />
-  </div>
-
-  <div class="pc-body">
-    <h3>TempTalk G2</h3>
-
-    <p>
-      A real-time temporary chat platform where users can create secure
-      password-protected rooms, share messages, voice notes, images, and files.
-      Built with React, TypeScript, Firebase Firestore, Cloudinary, and
-      Tailwind CSS with automatic room expiry after 60 minutes.
-    </p>
-
-    <div class="pc-links">
-      <a href="https://temptalk-g2.vercel.app/" target="_blank" class="demo">
-        <i class="fas fa-external-link-alt"></i> Live Demo
-      </a>
-
-      <a href="https://temptalk-g2.vercel.app/TempTalk-g2.apk" target="_blank" class="demo">
-        <i class="fab fa-android"></i> APK
-      </a>
-
-      <a href="https://github.com/Gopinath21052006/TempTalk_G2.git" target="_blank" class="code">
-        <i class="fab fa-github"></i> Source Code
-      </a>
-    </div>
-  </div>
-</div>
-
-
-
-
-<div class="pc rv d4">
-  <div class="pc-img">
-    <img src="scr/project_image/apple_adventure.png" alt="Apple Adventure" onerror="this.style.display='none'" />
-  </div>
-
-  <div class="pc-body">
-    <h3>Apple Adventure</h3>
-
-    <p>
-      A premium, responsive landing page created for the Android game
-      <strong>Apple Adventure</strong>. Built from scratch using HTML5, CSS3,
-      and JavaScript without any frameworks or build tools, featuring a
-      cinematic game-themed design, responsive layouts, interactive navigation,
-      parallax effects, gallery lightbox, gameplay section, APK download,
-      ambient particle effects, and accessibility-focused interactions.
-    </p>
-
-    <div class="pc-links">
-      <a href="https://gopinath21052006.github.io/AppleAdventure_Game/" target="_blank" class="demo">
-        <i class="fas fa-external-link-alt"></i> Live Demo
-      </a>
-
-      <a href="https://gopinath21052006.github.io/AppleAdventure_Game/assets/Apple_Adventure.apk" target="_blank" class="demo">
-        <i class="fab fa-android"></i> APK
-      </a>
-
-      <a href="https://github.com/Gopinath21052006/AppleAdventure_Game.git" target="_blank" class="code">
-        <i class="fab fa-github"></i> Source Code
-      </a>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div class="pc rv d2">
-        <div class="pc-img"><img src="scr/project_image/NeuroTrain_AI_Desktop_Assistant.png" alt="NeuroTrain" onerror="this.style.display='none'" /></div>
-        <div class="pc-body">
-          <h3>NeuroTrain — AI Assistant</h3>
-          <p>AI desktop app with voice, memory, and task automation. Built with FastAPI, React, Electron — modular and extensible.</p>
-          <div class="pc-links">
-            <a href="https://github.com/gopinath21052006/NeuroTrain" target="_blank" class="demo"><i class="fab fa-github"></i> Code</a>
+        <!-- Hero Quick Stats Strip -->
+        <div class="hero__stats hero__in" style="--d:.85s">
+          <div class="hero__stat">
+            <span class="hero__stat-val">03</span>
+            <span class="hero__stat-lbl">Playable Builds</span>
+          </div>
+          <div class="hero__stat-sep" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-val">100%</span>
+            <span class="hero__stat-lbl">Pure Blueprints</span>
+          </div>
+          <div class="hero__stat-sep" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-val">60<small>FPS</small></span>
+            <span class="hero__stat-lbl">Physics Loops</span>
+          </div>
+          <div class="hero__stat-sep" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-val">UE 5.8</span>
+            <span class="hero__stat-lbl">Engine Focus</span>
           </div>
         </div>
       </div>
 
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About section"><span>Scroll</span><i></i></a>
+    </section>
 
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="about__media reveal">
+          <div class="about__frame">
+            <div class="about__initials" aria-hidden="true">GR</div>
+            <img id="profileImg" alt="Portrait of Gopinath R" loading="lazy" width="480" height="600">
+            <div class="about__badge"><b>UE5</b><span>Unreal Engine<br>explorer</span></div>
+          </div>
+        </div>
+        <div class="about__text">
+          <p class="kicker reveal" data-phrases='["// ABOUT &amp; LEARNING JOURNEY", "// PASSIONATE ABOUT GAMES", "// BLUEPRINTS &amp; MECHANICS"]'>// ABOUT &amp; LEARNING JOURNEY</p>
+          <h2 class="h2 reveal">Learning By Building: From Code Logic To Playable Games.</h2>
+          <p class="lead reveal">I'm Gopinath R., a Computer Science graduate from Dindigul, India, passionate about learning game development. I love figuring out how game mechanics work behind the scenes — experimenting with player movement, physics reactions, and interactive game loops.</p>
+          <p class="reveal">Right now, I am dedicating my daily learning to Unreal Engine 5 and Blueprints, building hands-on prototypes to practice what I learn. I also enjoy developing 2D mobile games using Kotlin and Java.</p>
+          <ul class="tech-tags reveal">
+            <li><span>UE5</span> Unreal Engine 5 (Learning)</li>
+            <li><span>BP</span> Blueprint Visual Scripting</li>
+            <li><span>PHYS</span> Chaos Physics &amp; Interactions</li>
+            <li><span>PROT</span> Playable Prototyping</li>
+            <li><span>AND</span> 2D Game Dev (Kotlin &amp; Java)</li>
+            <li><span>CS</span> Computer Science Graduate</li>
+          </ul>
+        </div>
 
+        <div class="hud-card hud-card--full reveal">
+          <div class="hud-card__header">
+            <span class="hud-card__dot"></span>
+            <span class="hud-card__title">LEARNER PROFILE // DEV HUD</span>
+            <span class="hud-card__status">GROWING</span>
+          </div>
+          <div class="hud-card__grid">
+            <div class="hud-card__item">
+              <span class="hud-card__lbl">CORE ENGINE</span>
+              <b class="hud-card__val">Unreal Engine 5 (Learning)</b>
+            </div>
+            <div class="hud-card__item">
+              <span class="hud-card__lbl">SYSTEM LOGIC</span>
+              <b class="hud-card__val">Blueprints &amp; Game Loops</b>
+            </div>
+            <div class="hud-card__item">
+              <span class="hud-card__lbl">PHYSICS FOCUS</span>
+              <b class="hud-card__val">Chaos Physics &amp; Interactions</b>
+            </div>
+            <div class="hud-card__item">
+              <span class="hud-card__lbl">CAREER GOAL</span>
+              <b class="hud-card__val">Junior Gameplay Programmer</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker reveal" data-phrases='["// PRACTICE PROTOTYPES &amp; GAMES", "// LEARNING BY BUILDING", "// UE5 &amp; MOBILE GAMES"]'>// PRACTICE PROTOTYPES &amp; GAMES</p>
+          <h2 class="h2 reveal">Projects Built While Learning</h2>
+          <p class="section__sub reveal">Hands-on playable games and prototypes built to test new mechanics, practice Blueprint logic, and understand game engine fundamentals. Hover cards to preview gameplay.</p>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Filter projects" id="filters"></div>
+        <div class="showcase" id="showcase" aria-live="polite"></div>
+      </div>
+    </section>
 
-<div class="pc rv d2">
-  <div class="pc-img">
-    <img src="scr/project_image/duocontract_1.png" alt="DuoContract" onerror="this.style.display='none'" />
-  </div>
+    <!-- SKILLS -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker reveal" data-phrases='["// TOOLS &amp; LEARNING STACK", "// BLUEPRINTS &amp; ENGINES", "// DAILY WORKFLOW"]'>// TOOLS &amp; LEARNING STACK</p>
+          <h2 class="h2 reveal">Tools &amp; Tech I Work With</h2>
+          <p class="section__sub reveal">Engines, scripting languages, and tools I use while learning, experimenting, and building games.</p>
+        </div>
+        <div class="skills__grid" id="skillsGrid"></div>
+      </div>
+    </section>
 
-  <div class="pc-body">
-    <h3>DuoContract</h3>
+    <!-- JOURNEY -->
+    <section class="section journey" id="journey">
+      <div class="container journey__wrap">
+        <div class="journey__intro">
+          <p class="kicker reveal" data-phrases='["// BACKGROUND &amp; EDUCATION", "// CS GRADUATE FOUNDATION", "// MILESTONES &amp; JOURNEY"]'>// BACKGROUND &amp; EDUCATION</p>
+          <h2 class="h2 reveal">Education &amp; Milestones</h2>
+          <p class="reveal">Academic foundation and milestones along my game development learning journey.</p>
+        </div>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
 
-    <p>
-      A modern web platform for creating digital agreements between two people.
-      Features real-time synchronization, contract approval workflows,
-      digital seal verification, and a premium responsive UI powered by Firebase.
-    </p>
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="contact__bg" aria-hidden="true"></div>
+      <div class="container contact__inner">
+        <p class="kicker reveal" data-phrases='["// INITIATE CONTACT", "// OPEN FOR ROLES", "// TRANSMISSION // READY"]'>// INITIATE CONTACT</p>
+        <h2 class="contact__title reveal">READY TO LEARN, GROW &amp; CONTRIBUTE.</h2>
+        <p class="lead reveal">I am actively seeking junior gameplay programming roles, game dev internships, and entry-level opportunities where I can learn from experienced mentors and contribute to real projects.</p>
+        <div class="contact__links reveal" id="contactLinks"></div>
+      </div>
+    </section>
+  </main>
 
-    <div class="pc-links">
-      <a href="https://www.linkedin.com/posts/gopinath21052006_webdevelopment-reactjs-typescript-ugcPost-7471957832800677888-a2NU/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEaBIsYBj3Wn1ILxYYOssPDts9HnLkkRrQ4" target="_blank" class="demo">
-        <i class="fas fa-video"></i> Demo Video 
-      </a>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#home" class="nav__logo">GOPINATH<span>.</span></a>
+      <p>© <span id="year"></span> Gopinath R. Game Developer Portfolio.</p>
+      <p><a href="https://gopinath21052006.github.io/Portfolio/" target="_blank" rel="noopener">Full-stack Portfolio ↗</a></p>
+    </div>
+  </footer>
 
-      <a href="https://github.com/Gopinath21052006/DuoContract_code.git" target="_blank" class="code">
-        <i class="fab fa-github"></i> Source Code
-      </a>
+  <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
+  <!-- Project modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" tabindex="-1">
+      <button class="modal__close" data-close aria-label="Close project details">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div id="modalBody"></div>
     </div>
   </div>
-</div>
 
-
-      <div class="pc rv d3">
-        <div class="pc-img"><img src="scr/project_image/LifeArena–Personal_Book_Collection_Website.png" alt="LifeArena" onerror="this.style.display='none'" /></div>
-        <div class="pc-body">
-          <h3>LifeArena — Digital Library</h3>
-          <p>Book collection platform with in-browser PDF/EPUB reading, category filtering, and responsive layout.</p>
-          <div class="pc-links">
-            <a href="https://gopinath21052006.github.io/LifeArena" target="_blank" class="demo"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
-
-
-
-      
-      <div class="pc rv d1">
-        <div class="pc-img"><img src="scr/project_image/civic_connect.png" alt="Civic Connect" onerror="this.style.display='none'" /></div>
-        <div class="pc-body">
-          <h3>Civic Connect</h3>
-          <p>Citizen-to-authority issue reporting with location tracking and real-time status updates. Designed for transparency and usability.</p>
-          <div class="pc-links">
-            <a href="https://test-seven-gamma-89.vercel.app/" target="_blank" class="demo"><i class="fas fa-external-link-alt"></i> Demo</a>
-            <a href="https://github.com/god012345/CivicConnect" target="_blank" class="code"><i class="fab fa-github"></i></a>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="pc rv d3">
-        <div class="pc-img"><img src="scr/project_image/quiz_system.png" alt="Quiz" onerror="this.style.display='none'" /></div>
-        <div class="pc-body">
-          <h3>Online Quiz Platform</h3>
-          <p>Full-stack quiz app with secure scoring, real-time leaderboard, and admin controls. Node.js + Firebase backend.</p>
-          <div class="pc-links">
-            <a href="https://online-quiz-system-g8ti.onrender.com/" target="_blank" class="demo"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pc rv d1">
-        <div class="pc-img"><img src="scr/project_image/family_budget_project.png" alt="Budget" onerror="this.style.display='none'" /></div>
-        <div class="pc-body">
-          <h3>Family Budget Manager</h3>
-          <p>Django-based expense tracker with full CRUD, structured categories, and a clean household finance interface.</p>
-          <div class="pc-links">
-            <a href="https://github.com/Gopinath21052006/family_budget_project" target="_blank" class="demo"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pc rv d2">
-        <div class="pc-img"><img src="scr/project_image/PDF to DOCX Converter.png" alt="PDF" onerror="this.style.display='none'" /></div>
-        <div class="pc-body">
-          <h3>PDF → DOCX Converter</h3>
-          <p>Flask web app converting PDF files to DOCX with a simple interface and efficient server-side processing.</p>
-          <div class="pc-links">
-            <a href="https://github.com/Gopinath21052006/Converter" target="_blank" class="demo"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-<div class="pc rv d3">
-        <div class="pc-img"><img src="scr/project_image/Personal_Portfolio_Website.png" alt="Portfolio" onerror="this.style.display='none'" /></div>
-        <div class="pc-body">
-          <h3>Portfolio v1</h3>
-          <p>Previous iteration of the portfolio with clean layout, responsive design, and interactive elements.</p>
-          <div class="pc-links">
-            <a href="https://gopinath21052006.github.io/Portfolio-v1/" target="_blank" class="demo"><i class="fas fa-external-link-alt"></i> View</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pc rv d1">
-        <div class="pc-img"><img src="scr/project_image/Online_Fruit_Shop_Website.png" alt="Fruit Shop" onerror="this.style.display='none'" /></div>
-        <div class="pc-body">
-          <h3>Online Fruit Shop</h3>
-          <p>Responsive e-commerce UI with login, cart, and live price calculation. Built with HTML, CSS, JS, Bootstrap.</p>
-          <div class="pc-links">
-            <a href="https://gopinath21052006.github.io/web-design1/" target="_blank" class="demo"><i class="fas fa-external-link-alt"></i> Demo</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pc rv d2">
-        <div class="pc-img"><img src="scr/project_image/rock_paper_scissors.png" alt="RPS" onerror="this.style.display='none'" /></div>
-        <div class="pc-body">
-          <h3>Rock · Paper · Scissors</h3>
-          <p>Classic game reimagined with score tracking, theme toggle, and polished animations. Pure vanilla JS.</p>
-          <div class="pc-links">
-            <a href="https://gopinath21052006.github.io/rock-paper-scissors-recreated/" target="_blank" class="demo"><i class="fas fa-gamepad"></i> Play</a>
-          </div>
-        </div>
-      </div>
-
-
-
-
-
-
-      
-
-
-      
-    </div>
-  </div>
-</section>
-
-<!-- ══ STATS ═══════════════════════════════════════════ -->
-<section class="stats-bg">
-  <div class="container">
-    <div class="stats-row rv">
-      <div class="sc"><span class="sn" data-count="10" data-sfx="+">0</span><div class="sd">Projects Shipped</div></div>
-      <div class="sc"><span class="sn" data-count="10" data-sfx="+">0</span><div class="sd">Technologies</div></div>
-      <div class="sc"><span class="sn" data-count="3"  data-sfx="+">0</span><div class="sd">AI-Powered Apps</div></div>
-      <div class="sc"><span class="sn" data-count="100" data-sfx="%">0</span><div class="sd">Commitment</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOCUS ════════════════════════════════════════════ -->
-<section id="focus">
-  <div class="container">
-    <p class="lbl rv">Current Focus</p>
-    <h2 class="st rv d1">Where I'm <em><span class="g">headed</span></em></h2>
-    <div class="focus-inner rv d2">
-      <div class="ft">
-        <p>I'm focused on building scalable full-stack applications that solve real-world problems. From enterprise management platforms to real-time communication systems and AI-powered tools, I enjoy creating software that is reliable, secure, and user-friendly.</p>
-
-        <p>I'm always learning new technologies, improving my software engineering skills, and looking for opportunities to build products that make a meaningful impact.</p>
-
-        <div class="chips">
-          <div class="chip">🚀 Full-Stack Development</div>
-          <div class="chip">⚡ Real-Time Applications</div>
-          <div class="chip">🏗️ Scalable Architecture</div>
-          <div class="chip">🤖 AI Solutions</div>
-          <div class="chip">🗄️ Database Design</div>
-          <div class="chip">📱 Responsive UI/UX</div>
-        </div>
-      </div>
-
-      <div class="code-card">
-        <div><span class="cm_">// current focus</span></div>
-        <div><span class="ck">const</span> <span class="cf">focus</span> = {</div>
-        <div>&nbsp;&nbsp;frontend: <span class="cs">"React + Tailwind"</span>,</div>
-        <div>&nbsp;&nbsp;backend: <span class="cs">"Node.js + Express"</span>,</div>
-        <div>&nbsp;&nbsp;database: <span class="cs">"PostgreSQL + Firebase"</span>,</div>
-        <div>&nbsp;&nbsp;goal: <span class="cs">"Build impactful software"</span></div>
-        <div>};</div>
-        <div>&nbsp;</div>
-        <div><span class="cm_">// always learning ✦</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CONTACT ══════════════════════════════════════════ -->
-<section class="contact-bg" id="contact">
-  <div class="container">
-    <p class="lbl rv">Contact</p>
-    <h2 class="st rv d1">Let's <span class="p">connect</span></h2>
-    <div class="cgrid">
-      <div class="cinfo rv d2">
-        <h3>Got a project in mind?</h3>
-        <p>I'm open to freelance work, collaboration, and genuine conversations about building things. Whether it's a quick question or a full project — just reach out.</p>
-        <div class="cd"><i class="fab fa-github"></i> github.com/gopinath21052006</div>
-        <div class="cd"><i class="fab fa-linkedin-in"></i> linkedin.com/in/gopinath21052006</div>
-        <div class="cd"><i class="fas fa-map-marker-alt"></i> Dindigul, Tamil Nadu, India</div>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/gopinath21052006/" target="_blank" class="sa"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://github.com/gopinath21052006" target="_blank" class="sa"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-      <div class="rv d3">
-        <div class="cform">
-          <div class="ff"><label>Name</label><input type="text" id="cn" placeholder="Your name" /></div>
-          <div class="ff"><label>Email</label><input type="email" id="ce" placeholder="you@example.com" /></div>
-          <div class="ff"><label>Message</label><textarea id="cm" placeholder="Tell me about your idea or project..."></textarea></div>
-          <button class="sub-btn" id="subBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
-          <div id="fmsg"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOOTER ═══════════════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <div class="fi">
-      <div class="flogo">Gopi<em>nath</em></div>
-      <p class="fc">© 2025 Gopinath. Designed &amp; built with care.</p>
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/gopinath21052006/" target="_blank" class="sa"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/gopinath21052006" target="_blank" class="sa"><i class="fab fa-github"></i></a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-(function() {
-        emailjs.init("kX37tXhyL6sM_J_h6"); // Your public key
-    })();
-
-/* typing */
-const phrases = [
-  "Building scalable, real-world applications.",
-  "Turning complex ideas into clean products.",
-  "Performance, architecture, user experience.",
-  "AI systems. Civic tech. Full-stack platforms."
-];
-let pi=0,ci=0,del=false;
-const tEl=document.getElementById('typed');
-function type(){
-  const p=phrases[pi];
-  if(!del){tEl.textContent=p.slice(0,++ci);if(ci===p.length){del=true;setTimeout(type,1900);return;}}
-  else{tEl.textContent=p.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;}}
-  setTimeout(type,del?36:60);
-}
-type();
-
-/* scroll: header + active nav */
-const hdr=document.getElementById('hdr');
-const nls=document.querySelectorAll('.nl');
-window.addEventListener('scroll',()=>{
-  hdr.classList.toggle('scrolled',window.scrollY>40);
-  const secs=document.querySelectorAll('section[id]');
-  let cur='';
-  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id;});
-  nls.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
-},{passive:true});
-
-/* mobile drawer */
-const drawer=document.getElementById('drawer');
-const dOverlay=document.getElementById('dOverlay');
-function open(){drawer.classList.add('open');dOverlay.classList.add('open');document.body.style.overflow='hidden';}
-function close(){drawer.classList.remove('open');dOverlay.classList.remove('open');document.body.style.overflow='';}
-document.getElementById('hamburger').addEventListener('click',open);
-document.getElementById('dClose').addEventListener('click',close);
-dOverlay.addEventListener('click',close);
-document.querySelectorAll('.dl').forEach(l=>l.addEventListener('click',close));
-
-/* theme */
-let dark=true;
-function setTheme(d){
-  dark=d;
-  document.documentElement.dataset.theme=d?'dark':'light';
-  const ico=d?'fa-sun':'fa-moon';
-  document.getElementById('themeIco').className=`fas ${ico}`;
-  document.getElementById('themeIcoM').className=`fas ${ico}`;
-}
-document.getElementById('themeBtn').addEventListener('click',()=>setTheme(!dark));
-document.getElementById('themeBtnM').addEventListener('click',()=>setTheme(!dark));
-// load saved theme
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-  setTheme(savedTheme === "dark");
-} else {
-  setTheme(true);
-}
-
-// update setTheme
-function setTheme(d){
-  dark = d;
-  const theme = d ? 'dark' : 'light';
-  document.documentElement.dataset.theme = theme;
-  localStorage.setItem("theme", theme);
-
-  const ico = d ? 'fa-sun' : 'fa-moon';
-  document.getElementById('themeIco').className = `fas ${ico}`;
-  document.getElementById('themeIcoM').className = `fas ${ico}`;
-}
-/* reveal + bars + counters */
-const ro=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting)return;
-    e.target.classList.add('in');
-    e.target.querySelectorAll('.bar-fill').forEach(b=>b.style.width=b.dataset.w+'%');
-    e.target.querySelectorAll('[data-count]').forEach(n=>{
-      const target=+n.dataset.count, sfx=n.dataset.sfx||'+';
-      let cur=0; const step=Math.ceil(target/45);
-      const t=setInterval(()=>{cur=Math.min(cur+step,target);n.textContent=cur+sfx;if(cur>=target)clearInterval(t);},28);
-    });
-    ro.unobserve(e.target);
-  });
-},{threshold:0.1});
-document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
-
-/* contact */
-document.getElementById('subBtn').addEventListener('click', function () {
-  const name = document.getElementById('cn').value.trim();
-  const email = document.getElementById('ce').value.trim();
-  const message = document.getElementById('cm').value.trim();
-  const feedback = document.getElementById('fmsg');
-  const btn = this;
-
-  if (!name || !email || !message) {
-    feedback.textContent = "Please fill in all fields.";
-    feedback.className = "err";
-    return;
-  }
-
-  btn.innerHTML = "Sending...";
-  btn.disabled = true;
-
-  emailjs.send(
-    "service_lfosvqw",
-    "template_2ymw2qe",
-    {
-      from_name: name,
-      from_email: email,
-      message: message
-    }
-  )
-  .then(() => {
-    feedback.textContent = "✓ Message sent successfully!";
-    feedback.className = "ok";
-
-    document.getElementById('cn').value = "";
-    document.getElementById('ce').value = "";
-    document.getElementById('cm').value = "";
-  })
-  .catch((error) => {
-    console.error(error);
-    feedback.textContent = "❌ Failed to send message.";
-    feedback.className = "err";
-  })
-  .finally(() => {
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-    btn.disabled = false;
-  });
-});
-</script>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
