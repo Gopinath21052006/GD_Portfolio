@@ -2465,7 +2465,8 @@ p.hero__in,
   }
 
   .nav__actions .btn,
-  .nav__actions .sfx-toggle {
+  .nav__actions .sfx-toggle,
+  .nav__actions .other-world-btn {
     width: 100%;
     justify-content: center;
     padding: 0.65rem 1.2rem;
@@ -2896,6 +2897,227 @@ body.site-ready .hero__in {
 
 body.is-intro-active {
   overflow: hidden !important;
+}
+
+/* ============ Quantum Singularity & Hyperspace Warp ============ */
+.other-world-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d4af37;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.12);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.other-world-btn:hover {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: #d4af37;
+  color: #fff;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.ow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.other-world-btn:hover .ow-icon {
+  color: #fff;
+  transform: rotate(-12deg) scale(1.12);
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.7));
+}
+
+/* 60FPS SINGULARITY PAGE COLLAPSE */
+body.is-vanishing {
+  overflow: hidden !important;
+}
+
+body.is-vanishing > *:not(#portalVortexOverlay) {
+  animation: singularityImplode 0.8s cubic-bezier(0.25, 0.9, 0.3, 1) forwards !important;
+  pointer-events: none !important;
+  transform-origin: 50% 50% !important;
+}
+
+@keyframes singularityImplode {
+  0%   { transform: scale(1) rotate(0deg); opacity: 1; }
+  35%  { transform: scale(0.72) rotate(-3.5deg); opacity: 0.85; }
+  70%  { transform: scale(0.2) rotate(10deg); opacity: 0.35; }
+  100% { transform: scale(0.001) rotate(22deg); opacity: 0; }
+}
+
+/* WARP OVERLAY & HUD */
+.portal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background: #07060a;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.portal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+#warpTunnelCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.warp-center {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.portal-iris {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.iris-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.45);
+  animation: irisSpin 2.2s linear infinite;
+}
+
+.iris-ring::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: calc(50% - 4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 12px #fff, 0 0 20px #d4af37;
+}
+
+.iris-core {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(11, 10, 15, 0.95) 75%);
+  border: 1px solid rgba(243, 214, 245, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  font-size: 1.4rem;
+  animation: corePulse 1s ease-in-out infinite alternate;
+}
+
+.warp-hud {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.warp-hud-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  color: #d4af37;
+}
+
+.warp-hud-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+  margin: 0;
+}
+
+.warp-hud-realm {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: #b8b2c2;
+}
+
+.warp-meter {
+  width: 160px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+.warp-meter-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #d4af37, #f3d6f5, #fff);
+  animation: meterCharge 0.8s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+}
+
+.warp-flare {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out;
+  z-index: 10;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(212, 175, 55, 0.85) 35%, transparent 75%);
+}
+
+.warp-flare.active {
+  opacity: 1;
+}
+
+@keyframes irisSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes corePulse {
+  0% { transform: scale(0.95); }
+  100% { transform: scale(1.08); }
+}
+
+@keyframes meterCharge {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }
 
 /* ============ Reduced Motion ============ */

@@ -826,6 +826,163 @@
     setTimeout(typeNextChar, 250);
   }
 
+  /* ---------- Quantum Singularity & Hyperspace Warp ---------- */
+  function initPortalWarp() {
+    const btn = document.getElementById('otherWorldBtn');
+    const overlay = document.getElementById('portalVortexOverlay');
+    const canvas = document.getElementById('warpTunnelCanvas');
+    const flare = document.getElementById('warpFlare');
+    if (!btn) return;
+
+    const targetUrl = btn.getAttribute('href') || "https://gopinath21052006.github.io/Portfolio/";
+    let isWarping = false;
+    let animId = null;
+
+    function playWarpSound() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        if (ctx.state === 'suspended') ctx.resume();
+        const now = ctx.currentTime;
+
+        // 1. Activation Ping
+        const ping = ctx.createOscillator(), pGain = ctx.createGain();
+        ping.type = 'sine';
+        ping.frequency.setValueAtTime(1400, now);
+        ping.frequency.exponentialRampToValueAtTime(500, now + 0.09);
+        pGain.gain.setValueAtTime(0.28, now);
+        pGain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+        ping.connect(pGain);
+        pGain.connect(ctx.destination);
+        ping.start(now);
+        ping.stop(now + 0.1);
+
+        // 2. Sub-Bass Boom
+        const sub = ctx.createOscillator(), sGain = ctx.createGain();
+        sub.type = 'triangle';
+        sub.frequency.setValueAtTime(150, now);
+        sub.frequency.exponentialRampToValueAtTime(36, now + 0.85);
+        sGain.gain.setValueAtTime(0.5, now);
+        sGain.gain.exponentialRampToValueAtTime(0.001, now + 0.9);
+        sub.connect(sGain);
+        sGain.connect(ctx.destination);
+        sub.start(now);
+        sub.stop(now + 0.95);
+
+        // 3. Dimensional Frequency Ramp
+        const warp = ctx.createOscillator(), wFilter = ctx.createBiquadFilter(), wGain = ctx.createGain();
+        warp.type = 'sawtooth';
+        wFilter.type = 'lowpass';
+        wFilter.frequency.setValueAtTime(350, now);
+        wFilter.frequency.exponentialRampToValueAtTime(2200, now + 0.7);
+        warp.frequency.setValueAtTime(180, now);
+        warp.frequency.exponentialRampToValueAtTime(680, now + 0.75);
+        wGain.gain.setValueAtTime(0.02, now);
+        wGain.gain.linearRampToValueAtTime(0.2, now + 0.35);
+        wGain.gain.exponentialRampToValueAtTime(0.001, now + 0.82);
+        warp.connect(wFilter);
+        wFilter.connect(wGain);
+        wGain.connect(ctx.destination);
+        warp.start(now);
+        warp.stop(now + 0.85);
+
+        // 4. Suction Whoosh
+        const bufSize = ctx.sampleRate * 0.75, buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+        const noise = ctx.createBufferSource();
+        noise.buffer = buf;
+        const nFilter = ctx.createBiquadFilter(), nGain = ctx.createGain();
+        nFilter.type = 'bandpass';
+        nFilter.frequency.setValueAtTime(950, now);
+        nFilter.frequency.exponentialRampToValueAtTime(200, now + 0.75);
+        nFilter.Q.setValueAtTime(2.5, now);
+        nGain.gain.setValueAtTime(0.22, now);
+        nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.75);
+        noise.connect(nFilter);
+        nFilter.connect(nGain);
+        nGain.connect(ctx.destination);
+        noise.start(now);
+        noise.stop(now + 0.8);
+      } catch (_) {}
+    }
+
+    function startHyperspaceCanvas() {
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth, height = canvas.height = window.innerHeight;
+      const cx = width / 2, cy = height / 2;
+      const stars = Array.from({ length: 70 }, () => ({
+        angle: Math.random() * Math.PI * 2,
+        dist: Math.random() * 40 + 10,
+        speed: Math.random() * 14 + 10,
+        len: Math.random() * 35 + 15,
+        color: Math.random() > 0.35 ? '#d4af37' : '#ffffff'
+      }));
+      let start = performance.now();
+      function render(t) {
+        const el = t - start;
+        ctx.fillStyle = 'rgba(7, 6, 10, 0.3)';
+        ctx.fillRect(0, 0, width, height);
+        stars.forEach(s => {
+          s.dist += s.speed * (1 + el / 350);
+          const sx = cx + Math.cos(s.angle) * s.dist, sy = cy + Math.sin(s.angle) * s.dist;
+          const ex = cx + Math.cos(s.angle) * (s.dist + s.len * (1 + el / 400)), ey = cy + Math.sin(s.angle) * (s.dist + s.len * (1 + el / 400));
+          ctx.strokeStyle = s.color;
+          ctx.lineWidth = 1.6;
+          ctx.beginPath();
+          ctx.moveTo(sx, sy);
+          ctx.lineTo(ex, ey);
+          ctx.stroke();
+          if (sx < 0 || sx > width || sy < 0 || sy > height) {
+            s.dist = Math.random() * 25 + 5;
+            s.angle = Math.random() * Math.PI * 2;
+          }
+        });
+        animId = requestAnimationFrame(render);
+      }
+      animId = requestAnimationFrame(render);
+    }
+
+    function triggerVanish(e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.which === 2 || e.button === 1) return;
+      e.preventDefault();
+      if (isWarping) return;
+      isWarping = true;
+
+      playWarpSound();
+      document.body.classList.add('is-vanishing');
+      if (overlay) {
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
+      }
+      startHyperspaceCanvas();
+
+      setTimeout(() => {
+        if (flare) flare.classList.add('active');
+      }, 700);
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 850);
+    }
+
+    btn.addEventListener('click', triggerVanish);
+
+    window.addEventListener('pageshow', function(evt) {
+      if (evt.persisted || isWarping) {
+        isWarping = false;
+        document.body.classList.remove('is-vanishing');
+        if (overlay) {
+          overlay.classList.remove('active');
+          overlay.setAttribute('aria-hidden', 'true');
+        }
+        if (flare) flare.classList.remove('active');
+        if (animId) cancelAnimationFrame(animId);
+      }
+    });
+  }
+
   /* ---------- init ---------- */
   initIntroLoader();
   applySite();
@@ -837,6 +994,7 @@
   initAudioToggle();
   initTypewriters();
   attachHoverSFX();
+  initPortalWarp();
   onScroll();
   setActive("home");
   openFromHash();
